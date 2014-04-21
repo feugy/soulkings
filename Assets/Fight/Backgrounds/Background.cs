@@ -5,7 +5,8 @@ public class Background : MonoBehaviour
 {
 	public GameObject RoofTop;
 	public GameObject CentralPark;
-	public GameObject Alley;
+    public GameObject Alley;
+    public GameObject Statue;
 
 	void Start ()
 	{
@@ -24,7 +25,11 @@ public class Background : MonoBehaviour
 
 				case PlayerSingleton.Arena.RoofTop:
 					prefab = RoofTop;
-					break;
+                    break;
+
+                case PlayerSingleton.Arena.Statue:
+                    prefab = Statue;
+                    break;
 			}
 			if ( prefab != null )
 			{

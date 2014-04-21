@@ -65,12 +65,12 @@ public class CombatTrigger : OnClick {
 
     void Update()
     {
-        // Demo Hack: enable on F1
+        /*// TODO Demo Hack: enable on F1
         if (Input.GetKeyDown(KeyCode.F1) && !passed && !enable)
         {
             enable = true;
             UpdateRendering();
-        }
+        }*/
     }
 
     // update displayed sprite accordingly to the current state
@@ -83,7 +83,17 @@ public class CombatTrigger : OnClick {
     internal override void Action()
     {
         if (!enable || passed) return;
-        // Display dialog
+        // initialize fight params
+        FightParams.Instance.selected = PlayerSingleton.Mercenary.None;
+        FightParams.Instance.fight = fight;
+        FightParams.Instance.arena = arena;
+        FightParams.Instance.win = false;
+        // Display dialog unless no mercenaries available
+        if (InventorySingleton.Instance.mercenaries.Count == 0) 
+        {
+            Application.LoadLevel("Fight");
+            return;
+        }
         modal = (GameObject)GameObject.Instantiate(modalType);
         modal.GetComponent<Modal>().receiver = gameObject;
         modal.GetComponent<Modal>().title = descriptionTitle;
@@ -103,7 +113,6 @@ public class CombatTrigger : OnClick {
         {
             // Ask to select a mercenary
             GameObject selection = (GameObject)GameObject.Instantiate(mercenarySelectionType);
-            selection.GetComponent<MercenarySelection>().trigger = this;
         }
     }
 

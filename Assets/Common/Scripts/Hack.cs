@@ -5,10 +5,10 @@ public class Hack : MonoBehaviour {
 
     void Update()
     {
-        // Demo Hack: enable on F2
+        /*// TODO Demo Hack: enable on F2
         if (Input.GetKeyDown(KeyCode.F2))
         {
             InventorySingleton.Instance.cash += 1000;
-        }
+        }*/
     }
 }
