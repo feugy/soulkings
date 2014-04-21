@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+#if UNITY_EDITOR
+using UnityEngine;
 using UnityEditor;
-using System.Collections;
 
 [ExecuteInEditMode]
 public class Group : MonoBehaviour
 {
-#if UNITY_EDITOR
 
 	public static bool AreGroupsSelectable = true;
 
@@ -71,6 +71,8 @@ public class Group : MonoBehaviour
 		EditorApplication.RepaintHierarchyWindow ();
 		UpdateBounds ();
 	}
-
-#endif
 }
+#else
+public class Group {
+}
+#endif
