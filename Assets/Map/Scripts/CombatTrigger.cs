@@ -112,7 +112,7 @@ public class CombatTrigger : OnClick {
         if (button == Buttons.Yes.ToString())
         {
             // Ask to select a mercenary
-            GameObject selection = (GameObject)GameObject.Instantiate(mercenarySelectionType);
+            GameObject.Instantiate(mercenarySelectionType);
         }
     }
 

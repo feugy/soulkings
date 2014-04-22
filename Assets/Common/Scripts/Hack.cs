@@ -10,5 +10,9 @@ public class Hack : MonoBehaviour {
         {
             InventorySingleton.Instance.cash += 1000;
         }*/
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
